@@ -10,6 +10,16 @@ const TAskCard = ({allTasks}) => {
             const updatedTasks = tasks.filter(task => task.id !== id)
             setTasks(updatedTasks)
         }
+        const handleCompleted = (id)=>{
+          const foundTask = tasks.find(task => task.id === id)
+          const newFoundTask = {...foundTask, completed: !foundTask.completed}
+          const newTaskArray = tasks.map(task =>{
+            if (task.id === id){
+              return newFoundTask
+            } return task
+          })
+          setTasks(newTaskArray)
+        }
 
      const handleEdit = (id)=>{
             // const foundTask = tasks.filter(task => task.id === id)
@@ -42,7 +52,7 @@ const TAskCard = ({allTasks}) => {
                       key={task.id}
                       className="border-b hover:bg-gray-50"
                     >
-                      <td className="p-3  text-center"><input type="checkbox" checked={task.completed? true: false} className='size-4 rounded-full accent-[#7273e6]' /></td>
+                      <td className="p-3  text-center"><input type="checkbox" checked={task.completed? true: false} onChange={()=>handleCompleted(task.id)} className='size-4 rounded-full accent-[#7273e6]' /></td>
                       <td className="p-3 ">{task.title}</td>
                       <td className="p-3 ">{task.description}</td>
                       <td className="p-3 ">{task.dueDate}</td>

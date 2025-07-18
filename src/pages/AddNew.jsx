@@ -1,11 +1,11 @@
 import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router"
 import { taskContext } from "../context/TasksContext"
+import { v4 as uuidv4 } from 'uuid';
 
 const AddNew = () => {
     const navigate = useNavigate()
     const {tasks, setTasks, formData, setFormData} = useContext(taskContext)
-    const index = tasks.length + 1
 
     
     const handleChange =(e)=>{
@@ -15,7 +15,7 @@ const AddNew = () => {
         e.preventDefault()
 
         if(formData.title && formData.description && formData.dueDate && formData.priority){
-            const newTasks = {id: index, title: formData.title,  description: formData.description, dueDate: formData.dueDate, priority: formData.priority, completed: false }
+            const newTasks = {id: uuidv4() , title: formData.title,  description: formData.description, dueDate: formData.dueDate, priority: formData.priority, completed: false }
             setTasks( prev => ([newTasks, ...prev]))
             setFormData({
                 title: "", 
