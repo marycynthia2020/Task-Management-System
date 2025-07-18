@@ -47,7 +47,7 @@ const TAskCard = ({allTasks}) => {
                   </tr>
                 </thead>
                 <tbody className="">
-                  {allTasks.map((task) => (
+                  {allTasks.length > 0 ? allTasks.map((task) => (
                     <tr
                       key={task.id}
                       className="border-b hover:bg-gray-50"
@@ -62,7 +62,7 @@ const TAskCard = ({allTasks}) => {
                         <FiTrash2 className="cursor-pointer hover:text-red-500" onClick={()=> handleDelete(task.id)} />
                       </td>
                     </tr>
-                  ))}
+                  )) : <p className="font-bold text-2xl ">No Task</p>}
                 </tbody>
               </table>
             </div>
