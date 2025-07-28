@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Form from '../components/Form'
 import { taskContext } from '../context/TasksContext'
+import { useNavigate } from 'react-router'
 
 const EditTask = () => {
-    const {foundTask} = useContext(taskContext)
-    console.log(foundTask)
+    const navigate = useNavigate()
+    const {foundTask, tasks, setTasks} = useContext(taskContext)
     const [editFormData, setEditFormData] = useState({
         title: "",
         description: "",
         dueDate: "",
-        priority: "Urgency",
+        priority: "",
         completed: false
         })
     useEffect(()=>{
@@ -28,7 +29,13 @@ const EditTask = () => {
     }
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log(editFormData)
+        if(editFormData.title && editFormData.description && editFormData.dueDate && editFormData.priority){
+            const newTask = {id: foundTask.id , title: editFormData.title,  description: editFormData.description, dueDate: editFormData.dueDate, priority: editFormData.priority, completed: false }
+            const updatedTasks = tasks.filter(task => task.id !== newTask.id)
+            setTasks([newTask, ...updatedTasks])
+            navigate("/")
+            return 
+        } alert("All fields are required")
     }
   return (
     <div>

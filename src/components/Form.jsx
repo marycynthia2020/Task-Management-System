@@ -21,7 +21,7 @@ const Form = ({handleChange, handleSubmit, formData, keyFunction}) => {
               <p>Priority</p>
               <div className="flex gap-2">
                 <label htmlFor="urgentPriority">Urgent</label>
-                <input type="radio" name="priority" id="urgentPriority" value="Urgency" checked={formData.priority === "Urgency"} onChange={handleChange} />
+                <input type="radio" name="priority" id="urgentPriority" value="Urgent" checked={formData.priority === "Urgent"} onChange={handleChange} />
                 <label htmlFor="normalPriority">Normal</label>
                 <input type="radio" name="priority" id="normalPriority"  value="Normal" checked={formData.priority === "Normal"} onChange={handleChange} />
               </div>

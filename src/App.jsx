@@ -6,14 +6,11 @@ import All from "./pages/All"
 import Completed from "./pages/Completed"
 import Pending from "./pages/Pending"
 import AddNew from "./pages/AddNew"
-import { useContext } from "react"
-import { taskContext } from "./context/TasksContext"
 import EditTask from "./pages/EditTask"
 
 
 
 function App() {
-  const {tasks} = useContext(taskContext)
   return (
     <div>
       <Routes>

@@ -1,10 +1,9 @@
-import { createContext, useEffect, useState } from "react"
-import { allTAsks } from "../data"
+import { createContext, useState } from "react"
+import {data} from "../data"
 
 export const taskContext = createContext()
-
 const TasksContext = ({children}) => {
-    const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || allTAsks)
+    const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || data )
     const [foundTask, setFoundTask] = useState()
     
     const value = {

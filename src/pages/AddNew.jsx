@@ -11,7 +11,7 @@ const AddNew = () => {
         title: "",
         description: "",
         dueDate: "",
-        priority: "Urgency",
+        priority: "Urgent",
         completed: false
     })
     

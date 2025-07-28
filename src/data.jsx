@@ -1,4 +1,4 @@
-export const allTAsks = [
+export const data = [
   {
     "id": 1,
     "title": "Finish Project Report",
