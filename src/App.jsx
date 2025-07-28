@@ -8,12 +8,12 @@ import Pending from "./pages/Pending"
 import AddNew from "./pages/AddNew"
 import { useContext } from "react"
 import { taskContext } from "./context/TasksContext"
+import EditTask from "./pages/EditTask"
 
 
 
 function App() {
   const {tasks} = useContext(taskContext)
-  console.log(tasks)
   return (
     <div>
       <Routes>
@@ -24,6 +24,7 @@ function App() {
             <Route path="/completed"  element={< Completed />}/>
             <Route path="/pending"  element={<Pending />}/>
             <Route path="/addnew"  element={<AddNew />}/>
+            <Route path="/editask"  element={<EditTask />}/>
             <Route path="*" element={<PageNotFound />} />
 
           </Route>

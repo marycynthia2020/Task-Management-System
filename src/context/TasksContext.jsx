@@ -5,23 +5,15 @@ export const taskContext = createContext()
 
 const TasksContext = ({children}) => {
     const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || allTAsks)
-    const [formData, setFormData] = useState({
-        title: "",
-        description: "",
-        dueDate: "",
-        priority: "Urgency",
-        completed: false
-    })
+    const [foundTask, setFoundTask] = useState()
     
     const value = {
         tasks,
         setTasks,
-        formData,
-        setFormData
+        foundTask,
+        setFoundTask
     }
-    useEffect(()=>{
-        localStorage.setItem("tasks", JSON.stringify(tasks))
-    }, [tasks])
+    
   return (
    <taskContext.Provider value={value}>
     {children}

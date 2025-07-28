@@ -17,7 +17,7 @@ const Home = () => {
     }, [tasks])
 
   return (
-    <div className='px-4'>
+    <div className='py-4'>
       <All tasks={tasks}/>
       <Pending  pendingTasks={pendingTasks }/>
       <Completed completedTasks={completedTasks} />

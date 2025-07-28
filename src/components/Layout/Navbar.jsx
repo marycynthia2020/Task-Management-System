@@ -11,10 +11,10 @@ const Navbar = () => {
   const navigate = useNavigate()
   return (
     <div className='mb-4'>
-        <nav className='flex justify-between items-center p-4'>
+        <nav className='flex flex-col sm:flex-row  gap-y-4 justify-between items-center p-4'>
           <div className='flex items-center gap-4'>
               <CgArrowLeft className='bg-white p-1 text-4xl rounded-lg shadow-md w-14 cursor-pointer' onClick={()=> navigate(-1)} />
-            <input type="text" placeholder='search' className='outline-none p-2 w-80 bg-[#ebeaef] rounded-2xl' />
+            <input type="text" placeholder='search' className='outline-none p-2 w-60 md:w-80 bg-[#ebeaef] rounded-2xl' />
           </div>
 
         <div className='flex items-center gap-6'>
